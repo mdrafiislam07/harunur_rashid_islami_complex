@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"components/LivePlayer.js -> hls.js\":{\"id\":\"components/LivePlayer.js -> hls.js\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_hls_js_dist_hls_mjs.js\"]}}"
