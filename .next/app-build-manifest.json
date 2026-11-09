@@ -98,6 +98,11 @@
       "static/chunks/main-app.js",
       "static/css/app/admin/results/page.css",
       "static/chunks/app/admin/results/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
