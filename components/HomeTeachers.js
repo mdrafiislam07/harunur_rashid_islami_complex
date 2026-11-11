@@ -4,7 +4,7 @@
 //   <HomeTeachers list={teachers} />          // teachers = await get('/teachers')
 import Link from 'next/link';
 import TeacherCard from '@/components/TeacherCard';
-import { sortTeachers, getCat } from '@/lib/teacherCategories';
+import { sortTeachers, isFemale } from '@/lib/teacherCategories';
 
 export default function HomeTeachers({ list = [], limit = 4 }) {
   const items = sortTeachers(list).slice(0, limit);
@@ -19,7 +19,7 @@ export default function HomeTeachers({ list = [], limit = 4 }) {
         </div>
         <div className="tm-grid">
           {items.map((t) => (
-            <TeacherCard key={t._id} t={t} female={getCat(t.category).female} />
+            <TeacherCard key={t._id} t={t} female={isFemale(t)} />
           ))}
         </div>
         <div className="tm-more-wrap">

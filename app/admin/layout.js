@@ -11,6 +11,7 @@ const nav = [
   ['/admin/accounts', 'স্টুডেন্ট অ্যাকাউন্ট'],
   ['/admin/results', 'রেজাল্ট'],
   ['/admin/teachers', 'শিক্ষক'],
+  ['/admin/founder', 'প্রতিষ্ঠাতা'],
   ['/admin/notices', 'নোটিশ'],
   ['/admin/gallery', 'গ্যালারি'],
   ['/admin/admissions', 'ভর্তি আবেদন'],

@@ -1,12 +1,13 @@
 // frontend/components/TeacherProfile.js  (notun)
 import Link from 'next/link';
 import TeacherCard, { Avatar } from '@/components/TeacherCard';
-import { SITE_NAME, getCat, sortTeachers, clean } from '@/lib/teacherCategories';
+import { SITE_NAME, getCat, catLabel, isFemale, sortTeachers, clean } from '@/lib/teacherCategories';
 
 export default function TeacherProfile({ t, list }) {
   const cat = getCat(t.category);
+  const label = catLabel(t.category).toLowerCase();
   const others = sortTeachers(list)
-    .filter((x) => (x.category || 'ustaz') === cat.key && String(x._id) !== String(t._id))
+    .filter((x) => catLabel(x.category).toLowerCase() === label && String(x._id) !== String(t._id))
     .slice(0, 4);
 
   return (
@@ -23,7 +24,7 @@ export default function TeacherProfile({ t, list }) {
         <div className="tm-wrap">
           <article className="tp">
             <aside className="tp-side">
-              <div className="tp-photo">{t.image ? <img src={t.image} alt={t.name} /> : <Avatar female={cat.female} />}</div>
+              <div className="tp-photo">{t.image ? <img src={t.image} alt={t.name} /> : <Avatar female={isFemale(t)} />}</div>
               <span className="tp-badge">{cat.short}</span>
               {t.phone && <a className="tp-call" href={`tel:${t.phone}`}>📞 {t.phone}</a>}
             </aside>
@@ -45,7 +46,7 @@ export default function TeacherProfile({ t, list }) {
             <div className="tm-block" style={{ marginTop: 64 }}>
               <h2 className="tm-title">একই বিভাগের অন্যান্য সদস্য</h2>
               <div className="tm-grid">
-                {others.map((o) => <TeacherCard key={o._id} t={o} female={cat.female} />)}
+                {others.map((o) => <TeacherCard key={o._id} t={o} female={isFemale(o)} />)}
               </div>
             </div>
           )}
