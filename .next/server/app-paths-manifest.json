@@ -1,8 +1,10 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/(site)/page": "app/(site)/page.js",
-  "/student/login/page": "app/student/login/page.js",
-  "/(site)/gallery/page": "app/(site)/gallery/page.js",
   "/student/page": "app/student/page.js",
-  "/(site)/admission/page": "app/(site)/admission/page.js"
+  "/(site)/page": "app/(site)/page.js",
+  "/(site)/founder/page": "app/(site)/founder/page.js",
+  "/(site)/notices/page": "app/(site)/notices/page.js",
+  "/(site)/gallery/page": "app/(site)/gallery/page.js",
+  "/(site)/admission/page": "app/(site)/admission/page.js",
+  "/(site)/teachers/page": "app/(site)/teachers/page.js",
+  "/(site)/live/page": "app/(site)/live/page.js"
 }

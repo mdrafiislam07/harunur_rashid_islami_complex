@@ -30,6 +30,16 @@ eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Noto_Ser
 
 /***/ }),
 
+/***/ "(ssr)/./node_modules/next/font/google/target.css?{\"path\":\"app/student/layout.js\",\"import\":\"Noto_Sans_Bengali\",\"arguments\":[{\"subsets\":[\"bengali\",\"latin\"],\"display\":\"swap\",\"variable\":\"--font-sheet\"}],\"variableName\":\"sheetFont\"}":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/font/google/target.css?{"path":"app/student/layout.js","import":"Noto_Sans_Bengali","arguments":[{"subsets":["bengali","latin"],"display":"swap","variable":"--font-sheet"}],"variableName":"sheetFont"} ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Noto_Sans_Bengali_Fallback_9d3d5d', '__Noto_Sans_Bengali_Fallback_Fallback_9d3d5d'\",\"fontStyle\":\"normal\"},\n\t\"className\": \"__className_9d3d5d\",\n\t\"variable\": \"__variable_9d3d5d\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP3tcInBhdGhcIjpcImFwcC9zdHVkZW50L2xheW91dC5qc1wiLFwiaW1wb3J0XCI6XCJOb3RvX1NhbnNfQmVuZ2FsaVwiLFwiYXJndW1lbnRzXCI6W3tcInN1YnNldHNcIjpbXCJiZW5nYWxpXCIsXCJsYXRpblwiXSxcImRpc3BsYXlcIjpcInN3YXBcIixcInZhcmlhYmxlXCI6XCItLWZvbnQtc2hlZXRcIn1dLFwidmFyaWFibGVOYW1lXCI6XCJzaGVldEZvbnRcIn0iLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBLFdBQVcsMEhBQTBIO0FBQ3JJO0FBQ0E7QUFDQSIsInNvdXJjZXMiOlsid2VicGFjazovL21hZHJhc2EtZnJvbnRlbmQvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP2MwOTMiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhwb3J0c1xubW9kdWxlLmV4cG9ydHMgPSB7XG5cdFwic3R5bGVcIjoge1wiZm9udEZhbWlseVwiOlwiJ19fTm90b19TYW5zX0JlbmdhbGlfRmFsbGJhY2tfOWQzZDVkJywgJ19fTm90b19TYW5zX0JlbmdhbGlfRmFsbGJhY2tfRmFsbGJhY2tfOWQzZDVkJ1wiLFwiZm9udFN0eWxlXCI6XCJub3JtYWxcIn0sXG5cdFwiY2xhc3NOYW1lXCI6IFwiX19jbGFzc05hbWVfOWQzZDVkXCIsXG5cdFwidmFyaWFibGVcIjogXCJfX3ZhcmlhYmxlXzlkM2Q1ZFwiXG59O1xuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/next/font/google/target.css?{\"path\":\"app/student/layout.js\",\"import\":\"Noto_Sans_Bengali\",\"arguments\":[{\"subsets\":[\"bengali\",\"latin\"],\"display\":\"swap\",\"variable\":\"--font-sheet\"}],\"variableName\":\"sheetFont\"}\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/next/dist/api/link.js":
 /*!********************************************!*\
   !*** ./node_modules/next/dist/api/link.js ***!

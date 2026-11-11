@@ -4,7 +4,15 @@ import '@/app/portal.css';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { Noto_Sans_Bengali } from 'next/font/google';
 import { studentApi, DEFAULT_LOGO, DEFAULT_SETTINGS } from '@/lib/api';
+
+// Marksheet-er jonno porishkar Bengali font (shongkhya ১ ২ ৬ ৯ alada bojha jay)
+const sheetFont = Noto_Sans_Bengali({
+  subsets: ['bengali', 'latin'],
+  display: 'swap',
+  variable: '--font-sheet',
+});
 
 export default function StudentLayout({ children }) {
   const p = usePathname();
@@ -35,7 +43,7 @@ export default function StudentLayout({ children }) {
   if (p === '/student/login') return children;
 
   return (
-    <>
+    <div className={sheetFont.variable}>
       <header className="stbar">
         <div className="wrap">
           <Link href="/student" className="stbrand">
@@ -60,6 +68,6 @@ export default function StudentLayout({ children }) {
       <main className="stmain">
         <div className="wrap">{children}</div>
       </main>
-    </>
+    </div>
   );
 }

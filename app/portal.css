@@ -1,4 +1,6 @@
-/* ===== Student portal + admin (accounts / results) ===== */
+/* =====================================================================
+   frontend/app/portal.css  --  PURO FILE (purono ta puro muche eta paste koro)
+   ===================================================================== */
 
 /* ---------- Student top bar ---------- */
 .stbar{background:linear-gradient(180deg,var(--deep),var(--deep3));color:#fff;border-bottom:1px solid rgba(227,166,47,.3);box-shadow:0 10px 30px -18px rgba(0,0,0,.6)}
@@ -34,7 +36,7 @@
 .rbtn.on{border-color:var(--lamp);background:linear-gradient(90deg,rgba(227,166,47,.08),#fff 60%);box-shadow:0 0 0 3px rgba(227,166,47,.2)}
 
 /* ---------- Marksheet (প্রিমিয়াম ট্রান্সক্রিপ্ট) ---------- */
-.sheet{position:relative;isolation:isolate;background:#fff;border:1px solid #c9d6cf;border-radius:4px;padding:40px 42px 34px;max-width:840px;margin:0 auto 24px;box-shadow:var(--sh2);outline:3px double var(--deep);outline-offset:-12px;font-variant-numeric:lining-nums tabular-nums;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sheet{position:relative;isolation:isolate;background:#fff;border:1px solid #c9d6cf;border-radius:4px;padding:40px 42px 34px;max-width:840px;margin:0 auto 24px;box-shadow:var(--sh2);outline:3px double var(--deep);outline-offset:-12px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .sheet::before{content:"";position:absolute;inset:0;z-index:-1;background:url(/madrasa.jpg) center/300px no-repeat;opacity:.045;pointer-events:none}
 .sheet::after{content:"";position:absolute;left:12px;right:12px;top:12px;height:5px;background:var(--gold);border-radius:2px;opacity:.9}
 .shhead{text-align:center;border-bottom:2px solid var(--deep);padding:10px 0 16px;margin-bottom:18px;position:relative}
@@ -59,10 +61,25 @@
 .shsum .failv{border-color:var(--red)}
 .shsum .failv b{color:var(--red)}
 .scale{font-size:.84rem;margin-top:14px}
-.scale table{width:auto;margin-top:6px;font-size:.9rem}
-.scale th,.scale td{padding:3px 14px}
 .sign{display:flex;justify-content:space-between;gap:20px;margin-top:60px}
 .sign span{border-top:1.5px solid #000;padding-top:5px;min-width:160px;text-align:center;font-weight:600}
+
+/* Marksheet font + shongkhya fix (globals.css-er tnum/lnum Bengali ১ ke ৬-er moto dekhay) */
+.sheet,.sheet *,.sheet .shsum b{
+  font-family:var(--font-sheet),'Noto Sans Bengali','Hind Siliguri',system-ui,sans-serif;
+  font-variant-numeric:normal;
+  font-feature-settings:"kern";
+}
+.sheet .shhead h2{font-weight:800}
+.sheet td,.sheet th{font-weight:600}
+.sheet th{font-weight:700}
+.sheet .shsum b{font-weight:800}
+
+/* Grading পদ্ধতি (আড়াআড়ি, ৩ সারি) */
+.scale .scalet{width:100%;margin-top:8px;font-size:.88rem}
+.scale .scalet th{background:var(--deep);color:#fff;text-align:left;padding:4px 12px;white-space:nowrap;border-color:var(--deep)}
+.scale .scalet td{padding:4px 6px;font-weight:600}
+.scale .scalet tbody tr:nth-child(even){background:#f7faf8}
 
 /* ---------- Admin: accounts / results ---------- */
 .mbox.wide{max-width:800px}
@@ -81,10 +98,44 @@
 .subrow{grid-template-columns:1fr 1fr}
 }
 
-/* ---------- Print: শুধু মার্কশীট ছাপা হবে ---------- */
+/* =====================================================================
+   PRINT -- sudhu marksheet, ek A4 page, browser-er header/footer chhara
+   (Eta SHOBAR SHESHE thakte hobe. Ar kono purono @media print block rakha jabe na)
+   ===================================================================== */
+@page{size:A4 portrait;margin:0}
+
 @media print{
-@page{size:A4;margin:10mm}
-body *{visibility:hidden}
-.sheet,.sheet *{visibility:visible}
-.sheet{position:absolute;left:0;top:0;width:100%;max-width:none;margin:0;box-shadow:none;animation:none}
+  html,body{margin:0!important;padding:0!important;background:#fff!important;height:auto!important;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  /* marksheet chhara sob kichu bad */
+  .stbar,.pcard,.noprint{display:none!important}
+  .stmain{background:#fff!important;padding:0!important;min-height:0!important}
+  .stmain .wrap{max-width:none!important;padding:0!important;margin:0!important}
+
+  /* A4 (≈794px) < 800px, tai upore-r mobile rule print-e lege jay -- ekhane abar thik kora */
+  .sheet{position:static!important;width:190mm!important;max-width:none!important;
+    margin:10mm auto 0!important;padding:9mm 11mm 8mm!important;
+    box-shadow:none!important;border-radius:0!important;outline-offset:-9px;
+    break-inside:avoid;page-break-inside:avoid;font-size:10.5pt;line-height:1.55}
+  .sheet::after{left:9px;right:9px;top:9px}
+  .shhead{padding:4px 0 10px;margin-bottom:12px}
+  .shhead img{width:62px;height:62px;margin-bottom:4px}
+  .shhead h2{font-size:19pt;line-height:1.35}
+  .shhead p{font-size:9.5pt}
+  .shtitle{margin-top:8px;padding:2px 20px;font-size:11pt}
+  .shinfo{grid-template-columns:1fr 1fr!important;margin:14px 0 10px;padding:8px 12px;gap:4px 24px}
+  .sheet table{font-size:10.5pt}
+  .sheet th,.sheet td{padding:5px 8px}
+  .shsum{grid-template-columns:repeat(5,1fr)!important;margin:12px 0;gap:8px}
+  .shsum div{padding:6px 8px}
+  .shsum small{font-size:8.5pt}
+  .shsum b{font-size:13pt;line-height:1.4}
+  .scale{margin-top:10px;font-size:9pt}
+  .scale .scalet{font-size:9pt}
+  .scale .scalet th,.scale .scalet td{padding:2px 6px}
+  .sign{margin-top:18mm}
+
+  /* 12-r beshi subject hole grading table print theke bad (ek page-e rakhar jonno) */
+  .sheet.many .scale{display:none}
 }

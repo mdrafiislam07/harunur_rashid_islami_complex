@@ -173,7 +173,14 @@ export default function LivePlayer({ live }) {
           return;
         }
         if (!res.ok) throw new Error('WHEP ' + res.status);
-        await conn.setRemoteDescription({ type: 'answer', sdp: await res.text() });
+        const answer = await res.text();
+        if (stop) return;
+        await conn.setRemoteDescription({ type: 'answer', sdp: answer });
+
+        // RTMP (AAC audio) hole WebRTC te audio thake na -> HLS e jan, na hole shobdo chhara video cholbe
+        if (hlsUrl && !/^m=audio\s+[1-9]/m.test(answer)) {
+          startHls();
+        }
       } catch (err) {
         if (stop) return;
         fails += 1;

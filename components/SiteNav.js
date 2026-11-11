@@ -1,37 +1,33 @@
+// frontend/components/SiteNav.js  (replace)
 'use client';
-
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const links = [
-  ['/', 'হোম'],
-  ['/notices', 'নোটিশ'],
-  ['/teachers', 'শিক্ষকবৃন্দ'],
-  ['/gallery', 'গ্যালারি'],
-  ['/live', 'লাইভ'],
-  ['/admission', 'ভর্তি আবেদন'],
+const LINKS = [
+  { href: '/', label: 'হোম' },
+  { href: '/notices', label: 'নোটিশ' },
+  { href: '/teachers', label: 'শিক্ষকবৃন্দ' },
+  { href: '/founder', label: 'প্রতিষ্ঠাতা' },
+  { href: '/gallery', label: 'গ্যালারি' },
+  { href: '/live', label: 'লাইভ', live: true },
+  { href: '/admission', label: 'ভর্তি আবেদন' },
 ];
 
-export default function SiteNav({ name = 'হারুনুর রশিদ ইসলামী কমপ্লেক্স', logo = '/madrasa.jpg' }) {
-  const [open, setOpen] = useState(false);
+export default function SiteNav({ name, logo }) {
   const p = usePathname();
+  const [open, setOpen] = useState(false);
 
-  // route change hole menu bondho
-  useEffect(() => setOpen(false), [p]);
+  // page bodlale mobile menu bondho
+  useEffect(() => { setOpen(false); }, [p]);
 
-  // Esc diye bondho
-  useEffect(() => {
-    const k = (e) => e.key === 'Escape' && setOpen(false);
-    window.addEventListener('keydown', k);
-    return () => window.removeEventListener('keydown', k);
-  }, []);
+  const isOn = (href) => (href === '/' ? p === '/' : p === href || p.startsWith(href + '/'));
 
   return (
     <header className="nav">
       <div className="wrap navin">
         <Link href="/" className="brand">
-          {logo && <img src={logo} alt="" className="brandlogo" />}
+          <img src={logo} alt="" className="brandlogo" />
           <span>{name}</span>
         </Link>
 
@@ -40,17 +36,22 @@ export default function SiteNav({ name = 'হারুনুর রশিদ ই
           className="burger"
           aria-label="মেনু"
           aria-expanded={open}
-          aria-controls="site-menu"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen((o) => !o)}
         >
           <span /><span /><span />
         </button>
 
-        <nav id="site-menu" className={open ? 'open' : ''}>
-          {links.map(([h, l]) => (
-            <Link key={h} href={h} className={h === '/live' ? 'livelink' : ''}>{l}</Link>
+        <nav className={open ? 'open' : ''}>
+          {LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className={(l.live ? 'livelink ' : '') + (isOn(l.href) ? 'on' : '')}
+            >
+              {l.label}
+            </Link>
           ))}
-          <Link href="/student/login" className="btn sm">স্টুডেন্ট লগইন</Link>
+          <Link href="/student/login" className="btn">স্টুডেন্ট লগইন</Link>
         </nav>
       </div>
     </header>

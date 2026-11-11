@@ -5,8 +5,11 @@ import { studentApi, DEFAULT_LOGO, DEFAULT_SETTINGS } from '@/lib/api';
 import { GRADE_SCALE, bn, subjectGrade } from '@/lib/grade';
 
 function Sheet({ r, me, inst }) {
+  // 12-r beshi subject hole print-e grading table auto bad jabe (jate ek page-e thake)
+  const many = r.subjects.length > 12;
+
   return (
-    <div className="sheet">
+    <div className={'sheet' + (many ? ' many' : '')}>
       <div className="shhead">
         <img src={inst.logo || DEFAULT_LOGO} alt="" />
         <h2>{inst.name || DEFAULT_SETTINGS.name}</h2>
@@ -65,16 +68,23 @@ function Sheet({ r, me, inst }) {
 
       {r.remarks && <p><b>মন্তব্য:</b> {r.remarks}</p>}
 
+      {/* Grading পদ্ধতি: আড়াআড়ি (৩ সারি) -- আগের ৭ সারির চেয়ে অনেক কম জায়গা নেয় */}
       <div className="scale">
         <b>গ্রেডিং পদ্ধতি</b>
-        <table>
-          <thead>
-            <tr><th>নম্বর (%)</th><th>গ্রেড</th><th>পয়েন্ট</th></tr>
-          </thead>
+        <table className="scalet">
           <tbody>
-            {GRADE_SCALE.map(([a, b, c]) => (
-              <tr key={b}><td>{a}</td><td>{b}</td><td>{c}</td></tr>
-            ))}
+            <tr>
+              <th>নম্বর (%)</th>
+              {GRADE_SCALE.map(([a, b]) => <td key={b}>{a}</td>)}
+            </tr>
+            <tr>
+              <th>গ্রেড</th>
+              {GRADE_SCALE.map(([, b]) => <td key={b}><b>{b}</b></td>)}
+            </tr>
+            <tr>
+              <th>পয়েন্ট</th>
+              {GRADE_SCALE.map(([, b, c]) => <td key={b}>{c}</td>)}
+            </tr>
           </tbody>
         </table>
         <p className="muted" style={{ margin: '6px 0 0' }}>
@@ -136,7 +146,7 @@ export default function StudentHome() {
 
   return (
     <>
-      <h1>স্বাগতম, {me.name}</h1>
+      <h1 className="noprint">স্বাগতম, {me.name}</h1>
 
       <section className="pcard profile">
         {me.image ? <img className="avatar" src={me.image} alt={me.name} /> : <div className="ph">{me.name?.[0]}</div>}
@@ -185,7 +195,7 @@ export default function StudentHome() {
       {sel && (
         <>
           <Sheet r={sel} me={me} inst={inst} />
-          <p style={{ textAlign: 'center' }}>
+          <p className="noprint" style={{ textAlign: 'center' }}>
             <button className="btn" onClick={() => window.print()}>মার্কশীট প্রিন্ট / PDF সেভ করুন</button>
           </p>
         </>
