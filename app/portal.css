@@ -48,6 +48,7 @@
 .shtitle{display:inline-block;margin-top:12px;padding:4px 26px;background:var(--deep);color:#fff;border-radius:99px;font-weight:700;letter-spacing:.02em;box-shadow:0 8px 18px -10px rgba(11,61,58,.8)}
 .shinfo{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;margin:22px 0 16px;padding:12px 16px;background:var(--paper);border:1px solid #e3e9e4;border-radius:10px}
 .shinfo b{color:var(--ink)}
+.tscroll{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .sheet table{width:100%;border-collapse:collapse;font-size:1.02rem}
 .sheet th,.sheet td{border:1px solid #9bb3ab;padding:9px 12px;text-align:center;white-space:normal;position:static}
 .sheet td.l{text-align:left;font-weight:600}
@@ -90,12 +91,63 @@
 .subrow .x{padding:5px 11px;border:1px solid var(--red);color:var(--red);background:#fff;border-radius:9px;cursor:pointer;font:inherit}
 .prev{display:flex;gap:20px;flex-wrap:wrap;background:var(--sage);border-radius:12px;padding:12px 18px;margin:14px 0}
 
-@media(max-width:800px){
-.profile{grid-template-columns:1fr;justify-items:center;text-align:center}
-.shinfo{grid-template-columns:1fr}
-.sheet{padding:30px 18px 24px}
-.stbrand span{max-width:42vw}
-.subrow{grid-template-columns:1fr 1fr}
+/* =====================================================================
+   MOBILE (sudhu screen-e; print-e lagbe na)
+   ===================================================================== */
+@media screen and (max-width:800px){
+  .stbrand span{max-width:42vw}
+  .stbrand{font-size:1rem}
+  .stlinks a,.stlinks button{padding:7px 12px;font-size:.88rem}
+
+  .stmain{padding:20px 0 50px}
+  .stmain .wrap{padding:0 10px}
+  .stmain h1{font-size:1.4rem}
+  .stmain h2{font-size:1.1rem}
+
+  .pcard{padding:18px 14px;border-radius:14px}
+  .profile{grid-template-columns:1fr;justify-items:center;text-align:center;gap:16px}
+  .kv{grid-template-columns:1fr 1fr;gap:12px 14px;width:100%}
+  .rbtn{padding:12px 14px}
+  .subrow{grid-template-columns:1fr 1fr}
+
+  /* ----- Marksheet: desktop-er moto-i dekhabe, ekdom fit hoye ----- */
+  .sheet{padding:26px 10px 18px;outline-offset:-8px;max-width:100%;overflow:hidden}
+  .sheet::after{left:8px;right:8px;top:8px}
+  .shhead{padding:8px 0 12px}
+  .shhead img{width:60px;height:60px}
+  .shhead h2{font-size:1.15rem}
+  .shhead p{font-size:.8rem}
+  .shtitle{font-size:.82rem;padding:4px 14px;margin-top:8px}
+  .shinfo{grid-template-columns:1fr 1fr;gap:6px 10px;padding:10px;font-size:.82rem;margin:18px 0 12px}
+
+  /* main marks table: 6 column-i 350px-e fit hoy */
+  .sheet table.mt{table-layout:fixed;width:100%;font-size:.76rem}
+  .sheet table.mt th,.sheet table.mt td{padding:6px 2px;white-space:normal;overflow-wrap:anywhere;word-break:break-word;line-height:1.35;font-size:.76rem}
+  .sheet table.mt th{position:static;font-size:.68rem}
+  .sheet table.mt th:nth-child(1),.sheet table.mt td:nth-child(1){width:9%}
+  .sheet table.mt th:nth-child(2),.sheet table.mt td:nth-child(2){width:27%}
+  .sheet table.mt th:nth-child(3),.sheet table.mt td:nth-child(3){width:14%}
+  .sheet table.mt th:nth-child(4),.sheet table.mt td:nth-child(4){width:19%}
+  .sheet table.mt th:nth-child(5),.sheet table.mt td:nth-child(5){width:13%}
+  .sheet table.mt th:nth-child(6),.sheet table.mt td:nth-child(6){width:18%}
+
+  .shsum{grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+  .shsum div{padding:8px}
+  .shsum small{font-size:.74rem}
+  .shsum b{font-size:1.05rem}
+
+  .scale{font-size:.74rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .scale .scalet{min-width:420px;font-size:.74rem}
+
+  .sign{margin-top:36px;gap:10px}
+  .sign span{min-width:0;flex:1;font-size:.8rem}
+}
+
+@media screen and (max-width:380px){
+  .sheet table.mt th,.sheet table.mt td{padding:5px 1px;font-size:.7rem}
+  .sheet table.mt th{font-size:.64rem}
+  .shinfo{grid-template-columns:1fr}
+  .kv{grid-template-columns:1fr}
 }
 
 /* =====================================================================
@@ -113,7 +165,6 @@
   .stmain{background:#fff!important;padding:0!important;min-height:0!important}
   .stmain .wrap{max-width:none!important;padding:0!important;margin:0!important}
 
-  /* A4 (≈794px) < 800px, tai upore-r mobile rule print-e lege jay -- ekhane abar thik kora */
   .sheet{position:static!important;width:190mm!important;max-width:none!important;
     margin:10mm auto 0!important;padding:9mm 11mm 8mm!important;
     box-shadow:none!important;border-radius:0!important;outline-offset:-9px;

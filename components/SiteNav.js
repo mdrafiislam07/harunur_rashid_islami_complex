@@ -10,7 +10,7 @@ const LINKS = [
   { href: '/teachers', label: 'শিক্ষকবৃন্দ' },
   { href: '/founder', label: 'প্রতিষ্ঠাতা' },
   { href: '/gallery', label: 'গ্যালারি' },
-  { href: '/live', label: 'লাইভ', live: true },
+  //{ href: '/live', label: 'লাইভ', live: true },
   { href: '/admission', label: 'ভর্তি আবেদন' },
 ];
 

@@ -27,33 +27,35 @@ function Sheet({ r, me, inst }) {
         <div>শ্রেণি: <b>{r.className || me.className || '-'}</b></div>
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>ক্রম</th>
-            <th>বিষয়</th>
-            <th>পূর্ণমান</th>
-            <th>প্রাপ্ত নম্বর</th>
-            <th>গ্রেড</th>
-            <th>গ্রেড পয়েন্ট</th>
-          </tr>
-        </thead>
-        <tbody>
-          {r.subjects.map((s, i) => {
-            const g = subjectGrade(s);
-            return (
-              <tr key={s._id || i}>
-                <td>{bn(i + 1)}</td>
-                <td className="l">{s.name}</td>
-                <td>{bn(s.full)}</td>
-                <td>{s.absent ? 'অনুপস্থিত' : bn(s.marks)}</td>
-                <td>{g.letter}</td>
-                <td>{bn(g.point.toFixed(2))}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="tscroll">
+        <table className="mt">
+          <thead>
+            <tr>
+              <th>ক্রম</th>
+              <th>বিষয়</th>
+              <th>পূর্ণমান</th>
+              <th>প্রাপ্ত নম্বর</th>
+              <th>গ্রেড</th>
+              <th>গ্রেড পয়েন্ট</th>
+            </tr>
+          </thead>
+          <tbody>
+            {r.subjects.map((s, i) => {
+              const g = subjectGrade(s);
+              return (
+                <tr key={s._id || i}>
+                  <td>{bn(i + 1)}</td>
+                  <td className="l">{s.name}</td>
+                  <td>{bn(s.full)}</td>
+                  <td>{s.absent ? 'অনুপস্থিত' : bn(s.marks)}</td>
+                  <td>{g.letter}</td>
+                  <td>{bn(g.point.toFixed(2))}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
 
       <div className="shsum">
         <div><small>মোট নম্বর</small><b>{bn(r.totalMarks)} / {bn(r.totalFull)}</b></div>

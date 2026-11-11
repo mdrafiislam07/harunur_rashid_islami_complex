@@ -1,10 +1,9 @@
 {
-  "/(site)/teachers/page": "app/(site)/teachers/page.js",
-  "/(site)/teachers/view/page": "app/(site)/teachers/view/page.js",
-  "/(site)/notices/page": "app/(site)/notices/page.js",
+  "/student/page": "app/student/page.js",
   "/(site)/page": "app/(site)/page.js",
+  "/(site)/notices/page": "app/(site)/notices/page.js",
+  "/(site)/teachers/page": "app/(site)/teachers/page.js",
   "/(site)/founder/page": "app/(site)/founder/page.js",
   "/(site)/gallery/page": "app/(site)/gallery/page.js",
-  "/(site)/admission/page": "app/(site)/admission/page.js",
-  "/(site)/live/page": "app/(site)/live/page.js"
+  "/(site)/admission/page": "app/(site)/admission/page.js"
 }

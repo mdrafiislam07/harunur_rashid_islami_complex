@@ -1,14 +1,15 @@
 {
   "pages": {
-    "/(site)/teachers/page": [
+    "/student/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(site)/teachers/page.js"
+      "static/chunks/app/student/page.js"
     ],
-    "/(site)/layout": [
+    "/student/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(site)/layout.js"
+      "static/css/app/student/layout.css",
+      "static/chunks/app/student/layout.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,20 +17,25 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(site)/teachers/view/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(site)/teachers/view/page.js"
-    ],
     "/(site)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(site)/page.js"
     ],
+    "/(site)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(site)/layout.js"
+    ],
     "/(site)/notices/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(site)/notices/page.js"
+    ],
+    "/(site)/teachers/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(site)/teachers/page.js"
     ],
     "/(site)/founder/page": [
       "static/chunks/webpack.js",
@@ -40,11 +46,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(site)/gallery/page.js"
-    ],
-    "/(site)/live/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(site)/live/page.js"
     ],
     "/(site)/admission/page": [
       "static/chunks/webpack.js",

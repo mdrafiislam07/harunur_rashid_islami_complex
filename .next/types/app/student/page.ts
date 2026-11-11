@@ -1,8 +1,8 @@
-// File: /home/ytozza/Desktop/All-Project/Madrasa/madrasa (2)/frontend/app/(site)/live/page.js
-import * as entry from '../../../../../app/(site)/live/page.js'
+// File: /home/ytozza/Desktop/All-Project/Madrasa/madrasa (2)/frontend/app/student/page.js
+import * as entry from '../../../../app/student/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../../app/(site)/live/page.js')
+type TEntry = typeof import('../../../../app/student/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
